@@ -1,0 +1,19 @@
+name: Test setup-p7zip-fork
+on:
+  push:
+    paths:
+      - action.yml
+      - .github/workflows/test.yml
+      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup p7zip fork using setup-p7zip-fork
+        uses: AnimMouse/setup-p7zip-fork@main
+        
+      - name: Test p7zip fork installed by setup-p7zip-fork
+        run: 7z_ i
+        
+      - name: Test original p7zip
+        run: 7z

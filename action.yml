@@ -1,0 +1,32 @@
+name: "Setup p7zip fork"
+description: "Setup/Install new p7zip fork with additional codecs for GitHub Actions"
+branding:
+  icon: "archive"
+  color: "gray-dark"
+inputs:
+  version:
+    description: "Version of p7zip fork"
+    required: false
+    default: "v17.04"
+    
+runs:
+  using: "composite"
+  steps:
+    - name: Download p7zip fork
+      shell: bash
+      working-directory: /tmp
+      run: aria2c -x 16 "https://github.com/jinfeihan57/p7zip/releases/download/${{ inputs.version }}/linux-cmake-p7zip.7z"
+      
+    - name: Extract p7zip fork
+      shell: bash
+      working-directory: /tmp
+      run: 7z x "linux-cmake-p7zip.7z" -op7zip
+      
+    - name: Install p7zip fork on /usr/local/bin
+      shell: bash
+      run: sudo mv /tmp/p7zip/* /usr/local/bin
+      
+    - name: Clean up
+      shell: bash
+      working-directory: /tmp
+      run: sudo rm -r p7zip linux-cmake-p7zip.7z
