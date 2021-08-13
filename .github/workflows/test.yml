@@ -13,7 +13,7 @@ jobs:
         uses: AnimMouse/setup-p7zip-fork@main
         
       - name: Test p7zip fork installed by setup-p7zip-fork
-        run: 7z_ i
+        run: /opt/7z i
         
       - name: Test original p7zip
-        run: 7z
+        run: 7z i

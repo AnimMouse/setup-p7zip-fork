@@ -22,9 +22,13 @@ runs:
       working-directory: /tmp
       run: 7z x "linux-cmake-p7zip.7z" -op7zip
       
-    - name: Install p7zip fork on /usr/local/bin
+    - name: Install p7zip fork on /opt
       shell: bash
-      run: sudo mv /tmp/p7zip/* /usr/local/bin
+      run: sudo mv /tmp/p7zip/* /opt
+      
+    - name: Rename 7z_ to 7z
+      shell: bash
+      run: sudo mv /opt/7z_ /opt/7z
       
     - name: Clean up
       shell: bash
