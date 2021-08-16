@@ -34,7 +34,8 @@ steps:
 ```
 
 ### Why `/opt/7z`?
-So that we can also use the original [p7zip](https://sourceforge.net/projects/p7zip/) along with the new p7zip fork.
+So that we can also use the original [p7zip](https://sourceforge.net/projects/p7zip/) along with the new p7zip fork.\
+Also, p7zip [does not want to run on relative path](https://sourceforge.net/p/p7zip/discussion/383044/thread/5e4085ab/).
 
 ```yml
 steps:
