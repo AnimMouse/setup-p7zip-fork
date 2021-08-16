@@ -3,9 +3,9 @@ Setup [new p7zip fork](https://github.com/jinfeihan57/p7zip) on GitHub Actions t
 
 This action installs the [new p7zip fork](https://github.com/jinfeihan57/p7zip) with additional codecs and improvements for use in actions by installing it on /opt.
 
-With the new p7zip fork, you can now use [Zstandard (`zstd`)](https://github.com/facebook/zstd/), [Brotli](https://github.com/google/brotli/), [LZ4](https://github.com/lz4/lz4/), [LZ5](https://github.com/inikep/lz5/), [Lizard](https://github.com/inikep/lizard/), and [Fast LZMA2](https://github.com/conor42/fast-lzma2) on GitHub Actions. 
+With the new p7zip fork, you can now use [Zstandard (`zstd`)](https://github.com/facebook/zstd/), [Brotli](https://github.com/google/brotli/), [LZ4](https://github.com/lz4/lz4/), [LZ5](https://github.com/inikep/lz5/), [Lizard](https://github.com/inikep/lizard/), and [Fast LZMA2](https://github.com/conor42/fast-lzma2) on p7zip in GitHub Actions. 
 
-This action only works on Ubuntu virtual environments.
+This action only works on Ubuntu 20.04 and up virtual environments as 18.04 and below does not have GLIBC_2.29.
 
 ## Usage
 To use `/opt/7z`, run this action before `/opt/7z`.
