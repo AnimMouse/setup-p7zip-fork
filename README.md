@@ -1,5 +1,5 @@
 # Setup new p7zip fork for GitHub Actions
-Setup [new p7zip fork](https://github.com/jinfeihan57/p7zip) on GitHub Actions to use `/opt/7z`.
+Setup [new p7zip fork](https://github.com/jinfeihan57/p7zip) (7zip CLI for Linux) on GitHub Actions to use `/opt/7z`.
 
 This action installs the [new p7zip fork](https://github.com/jinfeihan57/p7zip) with additional codecs and improvements for use in actions by installing it on /opt.
 
