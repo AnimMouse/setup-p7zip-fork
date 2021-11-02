@@ -33,4 +33,4 @@ runs:
     - name: Clean up
       shell: bash
       working-directory: ${{ runner.temp }}
-      run: sudo rm -r p7zip linux-cmake-p7zip.7z
+      run: rm -r p7zip linux-cmake-p7zip.7z
