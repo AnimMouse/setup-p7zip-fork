@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - action.yml
-      - .github/workflows/test.yml
+      - .github/workflows/test.yaml
       
 jobs:
   test:
@@ -13,7 +13,7 @@ jobs:
         uses: AnimMouse/setup-p7zip-fork@main
         
       - name: Test p7zip fork installed by setup-p7zip-fork
-        run: /opt/7z i
-        
-      - name: Test original p7zip
         run: 7z i
+        
+      - name: Test p7zip fork standalone installed by setup-p7zip-fork
+        run: 7za i
