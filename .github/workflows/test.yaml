@@ -3,8 +3,12 @@ on:
   push:
     paths:
       - action.yml
+      - scripts/**
       - .github/workflows/test.yaml
-      
+  schedule:
+    - cron: '7 11 1 * *'
+  workflow_dispatch:
+  
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -13,7 +17,7 @@ jobs:
         uses: AnimMouse/setup-p7zip-fork@main
         
       - name: Test p7zip fork installed by setup-p7zip-fork
-        run: 7z i
-        
-      - name: Test p7zip fork standalone installed by setup-p7zip-fork
         run: 7za i
+        
+      - name: Test original p7zip
+        run: 7z i
