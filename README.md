@@ -1,7 +1,7 @@
 # Setup new p7zip fork for GitHub Actions
-Setup [new p7zip fork](https://github.com/p7zip-project/p7zip) (7zip CLI for Linux) on GitHub Actions to use `/opt/7z`.
+Setup [new p7zip fork](https://github.com/p7zip-project/p7zip) (p7zip-zstd) on GitHub Actions to use `7za`.
 
-This action installs the [new p7zip fork](https://github.com/p7zip-project/p7zip) with additional codecs and improvements for use in actions by installing it on tool cache using [AnimMouse/tool-cache](https://github.com/AnimMouse/tool-cache).
+This action installs the new p7zip fork with additional codecs and improvements for use in actions by installing it on tool cache using [AnimMouse/tool-cache](https://github.com/AnimMouse/tool-cache).
 
 With the new p7zip fork, you can now use [Zstandard (`zstd`)](https://github.com/facebook/zstd/), [Brotli](https://github.com/google/brotli/), [LZ4](https://github.com/lz4/lz4/), [LZ5](https://github.com/inikep/lz5/), [Lizard](https://github.com/inikep/lizard/), and [Fast LZMA2](https://github.com/conor42/fast-lzma2) on p7zip in GitHub Actions. 
 
