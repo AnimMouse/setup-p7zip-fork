@@ -1,50 +1,43 @@
 # Setup new p7zip fork for GitHub Actions
-Setup [new p7zip fork](https://github.com/jinfeihan57/p7zip) (7zip CLI for Linux) on GitHub Actions to use `/opt/7z`.
+Setup [new p7zip fork](https://github.com/p7zip-project/p7zip) (7zip CLI for Linux) on GitHub Actions to use `/opt/7z`.
 
-This action installs the [new p7zip fork](https://github.com/jinfeihan57/p7zip) with additional codecs and improvements for use in actions by installing it on /opt.
+This action installs the [new p7zip fork](https://github.com/p7zip-project/p7zip) with additional codecs and improvements for use in actions by installing it on tool cache using [AnimMouse/tool-cache](https://github.com/AnimMouse/tool-cache).
 
 With the new p7zip fork, you can now use [Zstandard (`zstd`)](https://github.com/facebook/zstd/), [Brotli](https://github.com/google/brotli/), [LZ4](https://github.com/lz4/lz4/), [LZ5](https://github.com/inikep/lz5/), [Lizard](https://github.com/inikep/lizard/), and [Fast LZMA2](https://github.com/conor42/fast-lzma2) on p7zip in GitHub Actions. 
 
-This action only works on Ubuntu 20.04 and up virtual environments as 18.04 and below does not have GLIBC_2.29.
+This action only works on Ubuntu.
 
 ## Usage
-To use `/opt/7z`, run this action before `/opt/7z`.
+To use `7za`, run this action before `7za`.
 
-```yml
+```yaml
 steps:
-  - uses: actions/checkout@v2
-    
   - name: Setup p7zip fork
-    uses: AnimMouse/setup-p7zip-fork@v1
+    uses: AnimMouse/setup-p7zip-fork@v2
     
-  - run: /opt/7z a archive.7z -m0=bcj -m1=zstd -mx22
+  - run: 7za i
 ```
 
-## Set version
-To use version other than the latest one:
+### Specific version
+You can specify the version you want. By default, this action downloads the latest version if version is not specified.
 
-```yml
+```yaml
 steps:
   - name: Setup p7zip fork
-    uses: AnimMouse/setup-p7zip-fork@v1
+    uses: AnimMouse/setup-p7zip-fork@v2
     with:
-      version: v17.04 # Set the version to use. Default: v17.04
+      version: v17.05
       
-  - run: /opt/7z i
+  - run: 7za i
 ```
 
-### Why `/opt/7z`?
-So that we can also use the original [p7zip](https://sourceforge.net/projects/p7zip/) along with the new p7zip fork.\
-Also, p7zip [does not want to run on relative path](https://sourceforge.net/p/p7zip/discussion/383044/thread/5e4085ab/).
+### GitHub token
+This action automatically uses a GitHub token in order to authenticate with the GitHub API and avoid rate limiting. You can also specify your own read-only fine-grained personal access token.
 
-```yml
+```yaml
 steps:
   - name: Setup p7zip fork
-    uses: AnimMouse/setup-p7zip-fork@v1
-    
-  - name: Run p7zip fork
-    run: /opt/7z i
-    
-  - name: Run original p7zip
-    run: 7z i
+    uses: AnimMouse/setup-p7zip-fork@v2
+    with:
+      token: ${{ secrets.GH_PAT }}
 ```
