@@ -1,6 +1,8 @@
 name: Test setup-p7zip-fork
 on:
   push:
+    branches:
+      - main
     paths:
       - action.yml
       - scripts/**
